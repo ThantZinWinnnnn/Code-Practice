@@ -91,3 +91,8 @@ for(let word of wordSet) {
  unique.push(word);
 }
 console.log('re ',unique);
+
+let array = [10,20,30]
+for (let val of array) {
+    console.log('value ',val);
+}
