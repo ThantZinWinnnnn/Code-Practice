@@ -96,3 +96,8 @@ let array = [10,20,30]
 for (let val of array) {
     console.log('value ',val);
 }
+
+let number = [10,20,30];
+
+let result =number.flatMap(x => x * x);
+console.log('result ',result)
