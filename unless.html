@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let forEach = (arr,fun) => {
+            for(let i = 0;i<arr.length;i++){
+                fun(arr[i]);
+            }
+        };
+        const unless = (predicate,fn) {
+            if(!predicate){
+                fn();
+            }
+        }
+        forEach([1,2,3,4,5,6],(number)=>
+        {
+            unless((number%2),()=>
+            {
+                console.log(number,'is even')
+            })
+        })
+
+        let forEach = (arr,fun)=>{
+            for(let i=0;i<arr.length;i++)
+            {
+                fun(arr[i]);
+            }
+       }
+      const unless=(predicateExp,fn)=>{
+        if(!predicateExp)
+        {
+            fn();
+        }
+      }
+      forEach([1,2,3,4,5,6,7],(number) => 
+        { 
+            unless((number % 2), () => 
+            {
+                console.log(number, " is even")
+            }) 
+        });
+
+    function zip(leftArr,rightArr,fun)
+       {
+         let results = [];
+         let len = Math.min(leftArr.length,rightArr.length)
+         for(let i=0;i< len ;i++)
+         {
+            let result = fun(leftArr[i],rightArr[i]);
+            results.push(result);
+         }
+         return results;
+       }
+       let a = [1,2,3,4];
+       let b = ['Apple','Orange','Banana'];
+       let pair=(a,b) => a + "=>" + b;
+       console.log('pair ',pair(a,b))
+       let results = zip(a,b,pair);
+       console.log("Result ",results);
+    </script>
+</body>
+</html>
