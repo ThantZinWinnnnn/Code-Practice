@@ -8,37 +8,37 @@
 </head>
 <body>
     <script>
-        // let num = '5,3,1,2,5,4,6,8';
-        // let result = [];
-        // for (let i = 0;i < num.length;i++){
-        //     if (num[i]%2 === 0){
-        //         return result.push('-',num[i]);
-        //     } else {
-        //         return result.push(num[i]);
-        //     };
-        // }
-        // console.log('result',result);
+        let num = '5,3,1,2,5,4,6,8';
+        let result = [];
+        for (let i = 0;i < num.length;i++){
+            if (num[i]%2 === 0){
+                return result.push('-',num[i]);
+            } else {
+                return result.push(num[i]);
+            };
+        }
+        console.log('result',result);
 
-    //     let forEach = (arr,fun)=>{
-    //         for(let i=0;i<arr.length;i++)
-    //         {
-    //             fun(arr[i]);
-    //         }
-    //    }
-    //   const unless=(predicateExp,fn)=>{
-    //     if(!predicateExp)
-    //     {
-    //         fn();
-    //     }
-    //   }
-    //   forEach([1,2,3,4,5,6,7],(number) => 
-    //     { 
-    //         console.log('number ',number)
-    //         unless((number % 2), () => 
-    //         {
-    //             console.log(number, " is even")
-    //         }) 
-    //     });
+        let forEach = (arr,fun)=>{
+            for(let i=0;i<arr.length;i++)
+            {
+                fun(arr[i]);
+            }
+       }
+      const unless=(predicateExp,fn)=>{
+        if(!predicateExp)
+        {
+            fn();
+        }
+      }
+      forEach([1,2,3,4,5,6,7],(number) => 
+        { 
+            console.log('number ',number)
+            unless((number % 2), () => 
+            {
+                console.log(number, " is even")
+            }) 
+        });
 
         
     var arr1 = [3, 'a', 'a', 'a', 2, 3, 'a', 3, 'a', 2, 4, 9, 3];
