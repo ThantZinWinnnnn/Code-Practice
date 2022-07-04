@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>topk</title>
+</head>
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
+    <script>
+        let arr =[1,1,1,1,2,2,2,2,2,3];
+
+
+        let k = 2;
+
+        let groupBy = R.groupBy(R.identity);
+        let obj = groupBy(arr);
+        console.log('obj arr ',obj);
+        let objArr = R.map((ele)=>[ele[0],ele.length])(obj);
+        console.log('arrObj ',objArr);
+        let multiarr = R.values(objArr);
+        console.log('multi ',multiarr)
+        let sortArr = R.sort((a,b)=>b[1]-a[1])(multiarr);
+        console.log('sortArr ',sortArr);
+        let single = R.map((ele)=>ele[0])(sortArr);
+        console.log('single ',single);
+        let take = R.take(2)(single);
+        console.log('take ',take)
+
+    </script>
+</body>
+</html>
