@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
+    <script>
+        let arr = [1,1,1,1,1,2,2,2,2,3]
+        let k = 2;
+        let group ={};
+        for(let value of arr){
+            if(group[value])
+            {
+                group[value] ++;
+            }
+            else 
+            {
+                group[value]=1;
+            }
+        }
+        console.log('group ',group);
+        let objArr = Object.entries(group);
+        console.log('objarr ',objArr);
+        let result = [];
+
+        for(let i = 0;i<k;i++)
+        {
+            result.push(objArr[i][0])
+        }
+        console.log('result ',result)
+
+
+        let countGroup = arr.reduce((group,b)=>{
+            return group[b]? (group[b]++,group):(group[b]=1,group);
+        },[]);
+        console.log('countGroup ',countGroup)
+       let mapArr = countGroup.map((ele,index)=>[index,ele]);
+        console.log('maparr ',mapArr)
+        let pureArray = mapArr.filter(ele=> ele !== undefined);
+        console.log('purearr ',pureArray);
+        let singleArr2 = pureArray.map(ele=>ele[0]);
+        console.log('singlearr ',singleArr2);
+        let result1 = singleArr2.reduce((arr,b)=>{
+            return arr.length == k? arr : [...arr,b];
+        },[]);
+        console.log('result1 ',result1);
+
+        let topKSolution = arr.reduce((group,b)=>{
+            return group[b]? (group[b]++,group):(group[b]=1,group);
+        },[])
+        .map((ele,index)=>[index,ele])
+        .filter(ele=> ele !== undefined)
+        .map(ele=>ele[0])
+        .reduce((arr,b)=>{
+            return arr.length == k? arr : [...arr,b];
+        },[]);
+        console.log('topksolution ',topKSolution)
+
+
+    </script>
+</body>
+</html>
