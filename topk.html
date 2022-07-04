@@ -13,7 +13,7 @@
 
 
         let k = 2;
-
+        
         let groupBy = R.groupBy(R.identity);
         let obj = groupBy(arr);
         console.log('obj arr ',obj);
@@ -27,6 +27,17 @@
         console.log('single ',single);
         let take = R.take(2)(single);
         console.log('take ',take)
+        
+
+        let frequentK = R.pipe(
+            R.groupBy(ele=>ele),
+            R.map((ele)=>[ele[0],ele.length]),
+            R.values(),
+            R.sort((a,b)=>b[1]-a[1]),
+            R.map(ele=>ele[0]),
+            R.take(2)
+        );
+        console.log('frequentK ',frequentK(arr))
 
     </script>
 </body>
