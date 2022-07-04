@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
+    <script>
+        let arr =[1,1,1,1,2,2,2,2,2,3];
+        let k = 2;
+        let groupBy = R.groupBy(ele=>ele)(arr);
+        console.log('groupBy ',groupBy);
+        let objArr = R.map(ele=>[ele[0],ele.length])(groupBy);
+        console.log('objarr',objArr);
+        let arrK = R.values(objArr);
+        console.log('arrk',arrK);
+        let sortArr = R.sort((a,b)=>b[1]-a[1])(arrK);
+        console.log('sortarr ',sortArr);
+        let singlearr = R.map((ele=>ele[0]),sortArr);
+        console.log('singlearr ',singlearr);
+        let takearr = R.take(2,singlearr);
+        console.log('takearr ',takearr)
+
+
+        let topkByRamda = R.pipe(
+            R.groupBy(ele=>ele),
+            R.map(ele=>[ele[0],ele.length]),
+            R.values(),
+            R.sort((a,b)=>b[1]-a[1]),
+            R.map(ele=>ele[0]),
+            R.take(2)
+        );
+        console.log('topkbyRamda ',topkByRamda(arr));
+        
+    </script>
+</body>
+</html>
