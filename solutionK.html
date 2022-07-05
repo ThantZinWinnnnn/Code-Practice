@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solution K </title>
+</head>
+<body>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
+
+    <script>
+        let arr =[1,1,1,1,1,1,2,2,2,2,2,2,2,2,3]
+        let k =2;
+
+        let groupBy = R.groupBy(ele=>ele)(arr);
+        console.log('groupBy ',groupBy);
+        let objArr = R.map((ele)=>[ele[0],ele.length])(groupBy);
+        console.log('objArr ',objArr)
+        let arrrObj = R.values(objArr);
+        console.log('arrObj ',arrrObj)
+        let sortArrr = R.sort((a,b)=>b[1]-a[1])(arrrObj);
+        console.log('sortArr ',sortArrr)
+        let singleArr = R.map(ele=>ele[0])(sortArrr);
+        console.log('single Arr ',singleArr);
+        let finalResult = R.take(2,singleArr);
+        console.log('final Result ',finalResult)
+
+
+        let solutionK = R.pipe(
+            R.groupBy(ele=>ele),
+            R.map((ele)=>[ele[0],ele.length]),
+            R.values(),
+            R.sort((a,b)=>b[1]-a[1]),
+            R.map(ele=>ele[0]),
+            R.take(2)
+        );
+        console.log('solution K ',solutionK(arr))
+
+        //imperative solution
+
+        let grouping = {};
+
+        for(let value of arr)
+        {
+            if(grouping[value])
+            {
+                grouping[value] ++;
+            } else
+            {
+                grouping[value] =1;
+            }
+        }
+        console.log('grouping ',grouping);
+        let objArrrr = Object.entries(grouping);
+        console.log('objarrrr ',objArrrr);
+        let result2 = [];
+        for(let i = 0;i<k;i++)
+        {
+            result2.push(objArrrr[i][0]);
+        };
+        console.log('result2 ',result2);
+
+
+        let countGroup = arr.reduce((group,b)=>
+        {
+            return group[b]? (group[b]++,group):(group[b]=1,group);
+        },[]
+        );
+        console.log('countGroup ',countGroup);
+        let mapping = countGroup.map((ele,index)=>[index,ele]);
+        console.log('mapping ',mapping);
+        let filtering = mapping.filter(ele=>ele!== undefined)
+        console.log('filtering ',filtering);
+        let single = filtering.sort((a,b)=>b[1]-a[1]);
+        console.log('single ',single);
+        let singleArr1 = single.map(ele=>ele[0]);
+        console.log('singleArr1 ',singleArr1);
+        let final = singleArr1.reduce((arr,b)=>{
+            return arr.length ===k ? arr: [...arr,b];
+        },[]);
+        console.log('final ',final);
+
+
+
+    </script>
+</body>
+</html>
