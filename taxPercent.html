@@ -8,44 +8,44 @@
 </head>
 <body>
     <script>
-        // const fruits = {
-        //     apple: 40,
-        //     orange: 50,
-        //     banana : 70
-        // }
-        // const result = [];
-        // let resultIndex = 0;
-        // let total = 0;
+        const fruits = {
+            apple: 40,
+            orange: 50,
+            banana : 70
+        }
+        const result = [];
+        let resultIndex = 0;
+        let total = 0;
 
-        // function taxPercentage(amount,percentage=.05)
-        // {
-        //     return amount * percentage;
-        // }
+        function taxPercentage(amount,percentage=.05)
+        {
+            return amount * percentage;
+        }
 
-        // function calcTotal(fruitName,amount)
-        // {
-        //     let cost = fruits[fruitName]* amount;
-        //     total += cost;
-        //     let results = {};
-        //     results.fruit = fruitName;
-        //     results.amounts = amount;
-        //     results.price = fruits[fruitName];
-        //     results.total = cost;
-        //     result[resultIndex] = results;
-        //     resultIndex ++;
-        //     return results;
-        // }
+        function calcTotal(fruitName,amount)
+        {
+            let cost = fruits[fruitName]* amount;
+            total += cost;
+            let results = {};
+            results.fruit = fruitName;
+            results.amounts = amount;
+            results.price = fruits[fruitName];
+            results.total = cost;
+            result[resultIndex] = results;
+            resultIndex ++;
+            return results;
+        }
 
-        // console.log(calcTotal('apple',40));
-        // console.log(calcTotal('orange',40));
-        // console.log(calcTotal('banana',40));
-        // console.table(result)
-        // console.table({
-        //     totals : total,
-        //     tax : 0.05,
-        //     taxPer : taxPercentage(total),
-        //     netPetcentage : total + taxPercentage(total),
-        // })
+        console.log(calcTotal('apple',40));
+        console.log(calcTotal('orange',40));
+        console.log(calcTotal('banana',40));
+        console.table(result)
+        console.table({
+            totals : total,
+            tax : 0.05,
+            taxPer : taxPercentage(total),
+            netPetcentage : total + taxPercentage(total),
+        })
 
 
         const vegetable = {
