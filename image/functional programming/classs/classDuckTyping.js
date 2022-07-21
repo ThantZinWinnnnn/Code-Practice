@@ -17,4 +17,5 @@ let obj = new bird();
 obj.fly();
 obj = new aeroplane();
 obj.fly();
-console.log('obj',obj)
+console.log('obj',obj);
+console.log('hello')
