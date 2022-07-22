@@ -19,3 +19,4 @@ obj = new aeroplane();
 obj.fly();
 console.log('obj',obj);
 console.log('hello')
+console.log
