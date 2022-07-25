@@ -1,0 +1,87 @@
+<script>
+    function checkPalindrome(string) {
+
+// find the length of a string
+const len = string.length;
+
+// loop through half of the string
+for (let i = 0; i < len / 2; i++) {
+
+    // check if first and last string are same
+    if (string[i] !== string[len - 1 - i]) {
+        return 'It is not a palindrome';
+    }
+}
+return 'It is a palindrome';
+}
+
+// take input
+const string = prompt('Enter a string: ');
+
+// call the function
+const value = checkPalindrome(string);
+
+console.log(value);
+
+
+
+
+
+function palindrome(string)
+{
+    let length = string.length;
+
+    for(let i = 0;i< length;i++)
+    {
+        if(string[0] !== string[length-1-i])
+        {
+            return 'It is not a palindrome'
+        }
+        return 'It is a palindrome sentence'
+    }
+}
+
+let take = prompt('type a sentence for palindrome');
+console.log('palindrome ',palindrome(take))
+
+
+const combinations = (str= '') => {
+let temp='';
+for (let i = 0; i < str.length; i++) {
+let int = '';
+for (let j=i; j < str.length; j++) {
+int += str[j];
+temp += int + ',' ;
+}
+}
+return temp;
+}
+
+console.log( combinations('dog') )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script>
