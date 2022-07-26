@@ -21,3 +21,20 @@ console.log(reverseFunction(num))
 let num2 = 546987;
 let new2 = num2.toString().split('').reverse().join('');
 console.log('string',new2);
+
+function palindrome(string)
+{
+    let length = string.length;
+
+    for(let i = 0;i< length/2;i++)
+    {
+        if(string[0] !== string[length-1-i])
+        {
+            return 'It is not a palindrome'
+        }
+        return 'It is a palindrome sentence'
+    }
+}
+
+let take = prompt('type a sentence for palindrome');
+console.log('palindrome ',palindrome(take))
