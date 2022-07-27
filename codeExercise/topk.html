@@ -9,36 +9,99 @@
 <body>
     <script src="//cdnjs.cloudflare.com/ajax/libs/ramda/0.25.0/ramda.min.js"></script>
     <script>
-        let arr =[1,1,1,1,2,2,2,2,2,3];
+        // let arr =[1,1,1,1,2,2,2,2,2,3];
+
+
+        // let k = 2;
+        
+        // let groupBy = R.groupBy(R.identity);
+        // let obj = groupBy(arr);
+        // console.log('obj arr ',obj);
+        // let objArr = R.map((ele)=>[ele[0],ele.length])(obj);
+        // console.log('arrObj ',objArr);
+        // let multiarr = R.values(objArr);
+        // console.log('multi ',multiarr)
+        // let sortArr = R.sort((a,b)=>b[1]-a[1])(multiarr);
+        // console.log('sortArr ',sortArr);
+        // let single = R.map((ele)=>ele[0])(sortArr);
+        // console.log('single ',single);
+        // let take = R.take(2)(single);
+        // console.log('take ',take)
+        
+
+        // let frequentK = R.pipe(
+        //     R.groupBy(ele=>ele),
+        //     R.map((ele)=>[ele[0],ele.length]),
+        //     R.values(),
+        //     R.sort((a,b)=>b[1]-a[1]),
+        //     R.map(ele=>ele[0]),
+        //     R.take(2)
+        // );
+        // console.log('frequentK ',frequentK(arr))
 
 
         let k = 2;
-        
-        let groupBy = R.groupBy(R.identity);
-        let obj = groupBy(arr);
-        console.log('obj arr ',obj);
-        let objArr = R.map((ele)=>[ele[0],ele.length])(obj);
-        console.log('arrObj ',objArr);
-        let multiarr = R.values(objArr);
-        console.log('multi ',multiarr)
-        let sortArr = R.sort((a,b)=>b[1]-a[1])(multiarr);
-        console.log('sortArr ',sortArr);
-        let single = R.map((ele)=>ele[0])(sortArr);
-        console.log('single ',single);
-        let take = R.take(2)(single);
-        console.log('take ',take)
-        
+       let arr = [2,2,2,1,1,1,1,1,2,2,3];
 
-        let frequentK = R.pipe(
-            R.groupBy(ele=>ele),
-            R.map((ele)=>[ele[0],ele.length]),
-            R.values(),
-            R.sort((a,b)=>b[1]-a[1]),
-            R.map(ele=>ele[0]),
-            R.take(2)
-        );
-        console.log('frequentK ',frequentK(arr))
+       let objs = [ 
+        {
+            name: "Tk",
+            gender: 'Male',
+        },
+        {
+            name: "Mya Mya",
+            gender: 'Female',
+        },
+        {
+            name: "Daw Hla",
+            gender: 'Female',
+        },
+        {
+            name: "Win Aung",
+            gender: 'Male',
+        },
+    ];
+    let groupByGender = R.groupBy(obj=>obj.gender);
+    let group = groupByGender(objs);
+    console.log('Group ',group);
 
+
+
+
+
+
+    let topK = 2;
+    let arr1 =[1,1,1,1,1,2,2,2,2,2,3];
+
+    // let groupBy = R.groupBy(ele=>ele)(arr);
+    // console.log('group',groupBy)
+    
+    // let multiarr = R.map((ele)=>[ele[0],ele.length])(groupBy)
+    // console.log('multiarr',multiarr)
+
+    // let array = R.values(multiarr);
+    // console.log('array ',array)
+
+    // let single = R.map(ele => ele[0])(array);
+    // console.log('single ',single)
+
+    // let final = R.take(2)(single);
+    // console.log('final ',final)
+
+    let log = R.tap(console.log)
+
+    let topKresult = R.pipe(
+        R.groupBy(ele=>ele),
+        log,
+        R.map((ele)=>[ele[0],ele.length]),
+        log,
+        R.values(),
+        log,
+        R.map(ele => ele[0]),
+        log,
+        R.take(2)
+    );
+    console.log('result ',topKresult(arr))
     </script>
 </body>
 </html>
