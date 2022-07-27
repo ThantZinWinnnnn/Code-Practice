@@ -11,54 +11,99 @@
     <script>
         let arr = [1,1,1,1,1,2,2,2,2,3]
         let k = 2;
-        let group ={};
-        for(let value of arr){
-            if(group[value])
-            {
-                group[value] ++;
-            }
-            else 
-            {
-                group[value]=1;
-            }
-        }
-        console.log('group ',group);
-        let objArr = Object.entries(group);
-        console.log('objarr ',objArr);
-        let result = [];
 
-        for(let i = 0;i<k;i++)
+        // let group = arr.reduce((group,b)=>
+        // {
+        //     return group[b]? (group[b]++,group) : (group[b] = 1,group);
+        // },[]);
+        // console.log('group ',group);
+        // let multiarr = group.map((ele,index)=>[index,ele]);
+        // console.log('multiarr ',multiarr);
+        // let filterArr = multiarr.filter(ele => ele != undefined);
+        // console.log('filterarr ',filterArr);
+
+        // let singleArr = filterArr.map(ele => ele[0]);
+        // console.log('single ',singleArr);
+
+        // let finalResult = singleArr.reduce((arr,b)=> arr.length === k ? arr : [...arr,b],[]);
+        // console.log('final ',finalResult)
+
+        let final1 = arr.reduce((group,b)=>
         {
-            result.push(objArr[i][0])
-        }
-        console.log('result ',result)
-
-
-        let countGroup = arr.reduce((group,b)=>{
-            return group[b]? (group[b]++,group):(group[b]=1,group);
-        },[]);
-        console.log('countGroup ',countGroup)
-       let mapArr = countGroup.map((ele,index)=>[index,ele]);
-        console.log('maparr ',mapArr)
-        let pureArray = mapArr.filter(ele=> ele !== undefined);
-        console.log('purearr ',pureArray);
-        let singleArr2 = pureArray.map(ele=>ele[0]);
-        console.log('singlearr ',singleArr2);
-        let result1 = singleArr2.reduce((arr,b)=>{
-            return arr.length == k? arr : [...arr,b];
-        },[]);
-        console.log('result1 ',result1);
-
-        let topKSolution = arr.reduce((group,b)=>{
-            return group[b]? (group[b]++,group):(group[b]=1,group);
+            return group[b]? (group[b]++,group) : (group[b] = 1,group);
         },[])
         .map((ele,index)=>[index,ele])
-        .filter(ele=> ele !== undefined)
-        .map(ele=>ele[0])
-        .reduce((arr,b)=>{
-            return arr.length == k? arr : [...arr,b];
-        },[]);
-        console.log('topksolution ',topKSolution)
+        .filter(ele => ele != undefined)
+        .map(ele => ele[0])
+        .reduce((arr,b)=> arr.length === k ? arr : [...arr,b],[]);
+        console.log('final ',final1)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    //     let group ={};
+    //     for(let value of arr){
+    //         if(group[value])
+    //         {
+    //             group[value] ++;
+    //         }
+    //         else 
+    //         {
+    //             group[value]=1;
+    //         }
+    //     }
+    //     console.log('group ',group);
+    //     let objArr = Object.entries(group);
+    //     console.log('objarr ',objArr);
+    //     let result = [];
+
+    //     for(let i = 0;i<k;i++)
+    //     {
+    //         result.push(objArr[i][0])
+    //     }
+    //     console.log('result ',result)
+
+
+    //     let countGroup = arr.reduce((group,b)=>{
+    //         return group[b]? (group[b]++,group):(group[b]=1,group);
+    //     },[]);
+    //     console.log('countGroup ',countGroup)
+    //    let mapArr = countGroup.map((ele,index)=>[index,ele]);
+    //     console.log('maparr ',mapArr)
+    //     let pureArray = mapArr.filter(ele=> ele !== undefined);
+    //     console.log('purearr ',pureArray);
+    //     let singleArr2 = pureArray.map(ele=>ele[0]);
+    //     console.log('singlearr ',singleArr2);
+    //     let result1 = singleArr2.reduce((arr,b)=>{
+    //         return arr.length == k? arr : [...arr,b];
+    //     },[]);
+    //     console.log('result1 ',result1);
+
+    //     let topKSolution = arr.reduce((group,b)=>{
+    //         return group[b]? (group[b]++,group):(group[b]=1,group);
+    //     },[])
+    //     .map((ele,index)=>[index,ele])
+    //     .filter(ele=> ele !== undefined)
+    //     .map(ele=>ele[0])
+    //     .reduce((arr,b)=>{
+    //         return arr.length == k? arr : [...arr,b];
+    //     },[]);
+    //     console.log('topksolution ',topKSolution)
 
 
     </script>
