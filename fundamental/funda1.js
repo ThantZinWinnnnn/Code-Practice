@@ -38,3 +38,65 @@ function palindrome(string)
 
 let take = prompt('type a sentence for palindrome');
 console.log('palindrome ',palindrome(take))
+
+let string = 'Web Development Tutorial';
+function findLongestWord(str)
+{
+    let strSplit = str.split(' ');
+    let longestWorsd = 0;
+    for(let i = 0;i < strSplit.length;i++)
+    {
+        if(strSplit[i].length > longestWorsd)
+        {
+            longestWorsd = strSplit[i].length;
+        }
+    }
+    return longestWorsd;
+}
+console.log('longsest ',findLongestWord(string));
+
+
+
+let strr =  'The quick brown fox';
+function getVowel(str)
+{
+    // let arr = str.split(' ');
+    let vowelsCount = 0;
+    let vowels = ['a','e','i','o','u'];
+    for(let char of str)
+    {
+        if(vowels.includes(char))
+        {
+            vowelsCount ++;
+        }
+    }
+    return vowelsCount;
+}
+console.log('vowels Count ',getVowel(strr));
+
+
+
+
+
+
+function findLongest(str)
+{
+    let arr = str.split(' ');
+    console.log('sr ',arr);
+    let longestWord = arr.sort((a,b)=> b.length - a.length);
+    return longestWord[0];
+}
+console.log('long',findLongest(string));
+
+
+function findWord (str)
+{
+    let arr = str.split(' ');
+    console.log('sr ',arr);
+    let longestWord = arr.reduce(function(longest,current)
+    {
+        return current.length > longest.length ?current :  longest;
+    },"");
+    return longestWord;
+}
+console.log('longestw ',findWord(string));
