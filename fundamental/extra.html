@@ -26,6 +26,34 @@
                 alert('input value is empty')
             }
         })
+
+
+
+            function checkParameter(argu)
+            {
+                let dataTypes = [Function,RegExp,Number,String,Boolean,null,undefined,Object],x,leng;
+                if(argu === 'object' | argu === 'function')
+                {
+                    for(let x = 0,leng = dataTypes.length; x < leng ;x++)
+                    {
+                        if(argu instanceof[x])
+                        {
+                            return dataTypes[x];
+                        }
+                    }
+                }
+                return typeof argu;
+            }
+            console.log('result ',checkParameter(function hello(str)
+            {
+                return str;
+            }))
+            console.log('result ',checkParameter('55'))
+            console.log('result ',checkParameter(null))
+
+
+
+
     </script>
 </body>
 </html>
